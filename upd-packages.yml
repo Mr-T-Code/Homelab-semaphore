@@ -1,6 +1,6 @@
 ---
 - name: Update and upgrade software packages
-  hosts: HL-TestDocker
+  hosts: all
   become: yes
   tasks:
   - name: Update packages with apt
