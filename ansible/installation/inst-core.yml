@@ -1,0 +1,25 @@
+---
+- name: install core packages
+  hosts: "{{ host }}"
+  become: yes
+  tasks:
+  - name: install core packages (APT)
+    apt:
+      name:
+        - net-tools
+        - curl
+        - git
+      update_cache: yes
+      state: latest
+    when: ansible_pkg_mgr == "apt"
+
+  - name: install core packages (DNF)
+    dnf:
+      name:
+        - net-tools
+        - curl
+        - git
+      update_cache: yes
+      state: latest
+    when: ansible_pkg_mgr == "dnf"
+    
