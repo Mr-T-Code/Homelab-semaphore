@@ -1,1 +1,9 @@
 ---
+- name: Update pihole
+  hosts: "{{ host }}"
+  tasks:
+  - name: Update Pi-hole Instance
+    shell: pihole -up
+
+  - name: Restart Pi-hole DNS
+    shell: pihole restartdns
